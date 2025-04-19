@@ -105,7 +105,11 @@ hagl_put_char(void const *_surface, wchar_t code, int16_t x0, int16_t y0, hagl_c
             if (set) {
                 *(ptr++) = color;
             } else {
+#ifdef HAGL_TRANSPARENT_CHAR_BACKGROUND
+                *(ptr++) = hagl_get_pixel(surface, x0 + x, y0 + y);
+#else
                 *(ptr++) = 0x0000;
+#endif
             }
         }
         glyph.buffer += glyph.pitch;
