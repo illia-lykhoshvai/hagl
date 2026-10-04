@@ -32,8 +32,8 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_TRIANGLE_H
-#define _HAGL_TRIANGLE_H
+#ifndef HAGL_TRIANGLE_H
+#define HAGL_TRIANGLE_H
 
 #include <stdint.h>
 
@@ -58,8 +58,10 @@ extern "C" {
  * @param y3
  * @param color
  */
-void
-hagl_draw_triangle(void const *surface, int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, hagl_color_t color);
+void hagl_draw_triangle(
+    void const *surface, int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2,
+    int16_t y2, hagl_color_t color
+);
 
 /**
  * Draw a filled triangle
@@ -76,11 +78,13 @@ hagl_draw_triangle(void const *surface, int16_t x0, int16_t y0, int16_t x1, int1
  * @param y3
  * @param color
  */
-void
-hagl_fill_triangle(void const *surface, int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, hagl_color_t color);
+void hagl_fill_triangle(
+    void const *surface, int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2,
+    int16_t y2, hagl_color_t color
+);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_TRIANGLE_H */
+#endif /* HAGL_TRIANGLE_H */

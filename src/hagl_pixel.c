@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2018-2023 Mika Tuupola
+Copyright (c) 2018-2026 Mika Tuupola
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -37,13 +37,11 @@ SPDX-License-Identifier: MIT
 #include "hagl/color.h"
 #include "hagl/surface.h"
 
-void
-hagl_put_pixel(void const *_surface, int16_t x0, int16_t y0, hagl_color_t color)
-{
+void hagl_put_pixel(void const *_surface, int16_t x0, int16_t y0, hagl_color_t color) {
     const hagl_surface_t *surface = _surface;
 
     /* x0 or y0 is before the edge, nothing to do. */
-    if ((x0 < surface->clip.x0) || (y0 < surface->clip.y0))  {
+    if ((x0 < surface->clip.x0) || (y0 < surface->clip.y0)) {
         return;
     }
 
@@ -53,15 +51,13 @@ hagl_put_pixel(void const *_surface, int16_t x0, int16_t y0, hagl_color_t color)
     }
 
     /* If still in bounds set the pixel. */
-    surface->put_pixel(&surface, x0, y0, color);
+    surface->put_pixel((void *)_surface, x0, y0, color);
 }
 
-hagl_color_t
-hagl_get_pixel(void const *_surface, int16_t x0, int16_t y0)
-{
+hagl_color_t hagl_get_pixel(void const *_surface, int16_t x0, int16_t y0) {
     const hagl_surface_t *surface = _surface;
     /* x0 or y0 is before the edge, nothing to do. */
-    if ((x0 < surface->clip.x0) || (y0 < surface->clip.y0))  {
+    if ((x0 < surface->clip.x0) || (y0 < surface->clip.y0)) {
         return hagl_color(surface, 0, 0, 0);
     }
 
@@ -71,7 +67,7 @@ hagl_get_pixel(void const *_surface, int16_t x0, int16_t y0)
     }
 
     if (surface->get_pixel) {
-        return surface->get_pixel(&surface, x0, y0);
+        return surface->get_pixel((void *)_surface, x0, y0);
     }
 
     return hagl_color(surface, 0, 0, 0);

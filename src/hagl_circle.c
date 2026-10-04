@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2018-2023 Mika Tuupola
+Copyright (c) 2018-2026 Mika Tuupola
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -35,12 +35,17 @@ SPDX-License-Identifier: MIT
 #include <stdint.h>
 
 #include "hagl/color.h"
-#include "hagl/pixel.h"
 #include "hagl/hline.h"
+#include "hagl/pixel.h"
 
-void
-hagl_draw_circle(void const *surface, int16_t xc, int16_t yc, int16_t r, hagl_color_t color)
-{
+void hagl_draw_circle(
+    void const *surface, int16_t xc, int16_t yc, int16_t r, hagl_color_t color
+) {
+    if (0 == r) {
+        hagl_put_pixel(surface, xc, yc, color);
+        return;
+    }
+
     int16_t x = 0;
     int16_t y = r;
     int16_t d = 3 - 2 * r;
@@ -75,18 +80,18 @@ hagl_draw_circle(void const *surface, int16_t xc, int16_t yc, int16_t r, hagl_co
     }
 }
 
-void
-hagl_fill_circle(void const *surface, int16_t x0, int16_t y0, int16_t r, hagl_color_t color)
-{
+void hagl_fill_circle(
+    void const *surface, int16_t x0, int16_t y0, int16_t r, hagl_color_t color
+) {
     int16_t x = 0;
     int16_t y = r;
     int16_t d = 3 - 2 * r;
 
     while (y >= x) {
-        hagl_draw_hline(surface, x0 - x, y0 + y, x * 2, color);
-        hagl_draw_hline(surface, x0 - x, y0 - y, x * 2, color);
-        hagl_draw_hline(surface, x0 - y, y0 + x, y * 2, color);
-        hagl_draw_hline(surface, x0 - y, y0 - x, y * 2, color);
+        hagl_draw_hline(surface, x0 - x, y0 + y, x * 2 + 1, color);
+        hagl_draw_hline(surface, x0 - x, y0 - y, x * 2 + 1, color);
+        hagl_draw_hline(surface, x0 - y, y0 + x, y * 2 + 1, color);
+        hagl_draw_hline(surface, x0 - y, y0 - x, y * 2 + 1, color);
 
         if (d <= 0) {
             d = d + 4 * x + 6;

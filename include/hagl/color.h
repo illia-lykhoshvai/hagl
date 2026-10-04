@@ -33,8 +33,8 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_COLOR_H
-#define _HAGL_COLOR_H
+#ifndef HAGL_COLOR_H
+#define HAGL_COLOR_H
 
 #include <hagl_hal_color.h>
 
@@ -51,11 +51,10 @@ extern "C" {
  * @param surface
  * @return color
  */
-hagl_color_t
-hagl_color(void const *surface, uint8_t r, uint8_t g, uint8_t b);
+hagl_color_t hagl_color(void const *surface, uint8_t r, uint8_t g, uint8_t b);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_COLOR_H */
+#endif /* HAGL_COLOR_H */

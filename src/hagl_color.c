@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2018-2023 Mika Tuupola
+Copyright (c) 2018-2026 Mika Tuupola
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -36,13 +36,11 @@ SPDX-License-Identifier: MIT
 #include "hagl/surface.h"
 #include "rgb565.h"
 
-hagl_color_t
-hagl_color(void const *_surface, uint8_t r, uint8_t g, uint8_t b)
-{
+hagl_color_t hagl_color(void const *_surface, uint8_t r, uint8_t g, uint8_t b) {
     const hagl_surface_t *surface = _surface;
 
     if (surface->color) {
-        return surface->color(&surface, r, g, b);
+        return surface->color((void *)_surface, r, g, b);
     }
     return rgb565(r, g, b);
 }

@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2018-2023 Mika Tuupola
+Copyright (c) 2018-2026 Mika Tuupola
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -36,27 +36,28 @@ SPDX-License-Identifier: MIT
 #include "hagl/line.h"
 #include "hagl/surface.h"
 
-void
-hagl_draw_hline_xyw(void const *_surface, int16_t x0, int16_t y0, uint16_t w, hagl_color_t color)
-{
+void hagl_draw_hline_xyw(
+    void const *_surface, int16_t x0, int16_t y0, uint16_t w, hagl_color_t color
+) {
     const hagl_surface_t *surface = _surface;
 
     if (surface->hline) {
         int16_t width = w;
 
         /* x0 or y0 is over the edge, nothing to do. */
-        if ((x0 > surface->clip.x1) || (y0 > surface->clip.y1) || (y0 < surface->clip.y0))  {
+        if ((x0 > surface->clip.x1) || (y0 > surface->clip.y1) ||
+            (y0 < surface->clip.y0)) {
             return;
         }
 
         /* x0 is left of clip window, ignore start part. */
         if (x0 < surface->clip.x0) {
-            width = width + x0;
+            width = width - (surface->clip.x0 - x0);
             x0 = surface->clip.x0;
         }
 
         /* Everything outside clip window, nothing to do. */
-        if (width <= 0)  {
+        if (width <= 0) {
             return;
         }
 
@@ -65,7 +66,7 @@ hagl_draw_hline_xyw(void const *_surface, int16_t x0, int16_t y0, uint16_t w, ha
             width = width - (x0 + width - 1 - surface->clip.x1);
         }
 
-        surface->hline(&surface, x0, y0, width, color);
+        surface->hline((void *)_surface, x0, y0, width, color);
     } else {
         hagl_draw_line(surface, x0, y0, x0 + w - 1, y0, color);
     }

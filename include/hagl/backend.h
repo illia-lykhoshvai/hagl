@@ -32,14 +32,14 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_BACKEND_H
-#define _HAGL_BACKEND_H
+#ifndef HAGL_BACKEND_H
+#define HAGL_BACKEND_H
 
 #include <stddef.h>
 
 #include "hagl/bitmap.h"
-#include "hagl/window.h"
 #include "hagl/color.h"
+#include "hagl/window.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -55,9 +55,13 @@ typedef struct {
     hagl_color_t (*get_pixel)(void *self, int16_t x0, int16_t y0);
     hagl_color_t (*color)(void *self, uint8_t r, uint8_t g, uint8_t b);
     void (*blit)(void *self, int16_t x0, int16_t y0, hagl_bitmap_t *src);
-    void (*scale_blit)(void *self, uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, hagl_bitmap_t *src);
+    void (*scale_blit)(
+        void *self, uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, hagl_bitmap_t *src
+    );
     void (*hline)(void *self, int16_t x0, int16_t y0, uint16_t width, hagl_color_t color);
-    void (*vline)(void *self, int16_t x0, int16_t y0, uint16_t height, hagl_color_t color);
+    void (*vline)(
+        void *self, int16_t x0, int16_t y0, uint16_t height, hagl_color_t color
+    );
 
     /* Specific to backend. */
     size_t (*flush)(void *self);
@@ -70,4 +74,4 @@ typedef struct {
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_BACKEND_H */
+#endif /* HAGL_BACKEND_H */

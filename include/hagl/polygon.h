@@ -33,8 +33,8 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_POLYGON_H
-#define _HAGL_POLYGON_H
+#ifndef HAGL_POLYGON_H
+#define HAGL_POLYGON_H
 
 #include <stdint.h>
 
@@ -59,8 +59,9 @@ extern "C" {
  * @param vertices pointer to (an array) of vertices
  * @param color
  */
-void
-hagl_draw_polygon(void const *surface, int16_t amount, int16_t *vertices, hagl_color_t color);
+void hagl_draw_polygon(
+    void const *surface, int16_t amount, int16_t *vertices, hagl_color_t color
+);
 
 /**
  * Draw a filled polygon
@@ -77,11 +78,12 @@ hagl_draw_polygon(void const *surface, int16_t amount, int16_t *vertices, hagl_c
  * @param vertices pointer to (an array) of vertices
  * @param color
  */
-void
-hagl_fill_polygon(void const *surface, int16_t amount, int16_t *vertices, hagl_color_t color);
+void hagl_fill_polygon(
+    void const *surface, int16_t amount, int16_t *vertices, hagl_color_t color
+);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_POLYGON_H */
+#endif /* HAGL_POLYGON_H */

@@ -33,8 +33,8 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_ELLIPSE_H
-#define _HAGL_ELLIPSE_H
+#ifndef HAGL_ELLIPSE_H
+#define HAGL_ELLIPSE_H
 
 #include <stdint.h>
 
@@ -56,8 +56,9 @@ extern "C" {
  * @param b horizontal radius
  * @param color
  */
-void
-hagl_draw_ellipse(void const *surface, int16_t x0, int16_t y0, int16_t a, int16_t b, hagl_color_t color);
+void hagl_draw_ellipse(
+    void const *surface, int16_t x0, int16_t y0, int16_t a, int16_t b, hagl_color_t color
+);
 
 /**
  * Draw a filled ellipse
@@ -71,11 +72,12 @@ hagl_draw_ellipse(void const *surface, int16_t x0, int16_t y0, int16_t a, int16_
  * @param b horizontal radius
  * @param color
  */
-void
-hagl_fill_ellipse(void const *surface, int16_t x0, int16_t y0, int16_t a, int16_t b, hagl_color_t color);
+void hagl_fill_ellipse(
+    void const *surface, int16_t x0, int16_t y0, int16_t a, int16_t b, hagl_color_t color
+);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_ELLIPSE_H */
+#endif /* HAGL_ELLIPSE_H */

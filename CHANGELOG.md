@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## [0.8.0](https://github.com/tuupola/hagl/compare/0.7.0...0.8.0) - 2026-04-01
+
+### Fixed
+- Wrong image guard in `image.h`  ([#113](https://github.com/tuupola/hagl/pull/113)).
+- Filled polygon rendered incorrectly with negative x coordinates ([#122](https://github.com/tuupola/hagl/pull/122)).
+- Polygon and rectangle output did not match ([#123](https://github.com/tuupola/hagl/pull/123), [#124](https://github.com/tuupola/hagl/pull/124)).
+- Horizontal and vertical line parameters are now sorted ([#125](https://github.com/tuupola/hagl/pull/125), [#121](https://github.com/tuupola/hagl/issues/121)).
+- Filled circle with radius of one did not produce correct output ([#145](https://github.com/tuupola/hagl/pull/145), [#144](https://github.com/tuupola/hagl/issues/144)).
+- Circle with zero radius did not produce a single pixel ([#146](https://github.com/tuupola/hagl/pull/146), [#140](https://github.com/tuupola/hagl/issues/140)).
+- Surface callbacks received pointer-to-pointer instead of pointer-to-struct ([#147](https://github.com/tuupola/hagl/pull/147)).
+- Infinite loop when drawing ellipse with zero radius ([#154](https://github.com/tuupola/hagl/pull/154), [#152](https://github.com/tuupola/hagl/issues/152)).
+- Filled ellipse was not symmetrical ([#157](https://github.com/tuupola/hagl/pull/157), [#155](https://github.com/tuupola/hagl/issues/155)).
+- Blit parameters are now sorted ([#160](https://github.com/tuupola/hagl/pull/160)).
+- Blit with zero width or height did not return early ([#161](https://github.com/tuupola/hagl/pull/161)).
+- Off by one error in blit clip check ([#162](https://github.com/tuupola/hagl/pull/162)).
+- Horizontal line width with custom clip window ([#167](https://github.com/tuupola/hagl/pull/167)).
+- Vertical line height with custom clip window ([#168](https://github.com/tuupola/hagl/pull/168)).
+
+### Changed
+- Polygon functions now require at least three vertices ([#132](https://github.com/tuupola/hagl/pull/132)).
+- Remove underscore prefix from include guards ([#159](https://github.com/tuupola/hagl/pull/159)).
+
+### Added
+- ISO 8859-1 versions of the fonts ([#163](https://github.com/tuupola/hagl/pull/163)).
+
 ## [0.7.0](https://github.com/tuupola/hagl/compare/0.6.0...0.7.0) - 2023-03-19
 
 ### Changed

@@ -33,8 +33,8 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_LINE_H
-#define _HAGL_LINE_H
+#ifndef HAGL_LINE_H
+#define HAGL_LINE_H
 
 #include <stdint.h>
 
@@ -56,11 +56,13 @@ extern "C" {
  * @param y1
  * @param color
  */
-void
-hagl_draw_line(void const *surface, int16_t x0, int16_t y0, int16_t x1, int16_t y1, hagl_color_t color);
+void hagl_draw_line(
+    void const *surface, int16_t x0, int16_t y0, int16_t x1, int16_t y1,
+    hagl_color_t color
+);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_LINE_H */
+#endif /* HAGL_LINE_H */

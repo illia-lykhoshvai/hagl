@@ -33,8 +33,8 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_PIXEL_H
-#define _HAGL_PIXEL_H
+#ifndef HAGL_PIXEL_H
+#define HAGL_PIXEL_H
 
 #include <stdint.h>
 
@@ -50,12 +50,11 @@ extern "C" {
  * Output will be clipped to the current clip window.
  *
  * @param surface
- * @param x0
- * @param y0
- * @param color
+ * @param x0 X coordinate
+ * @param y0 Y coordinate
+ * @param color pixel color
  */
-void
-hagl_put_pixel(void const *surface, int16_t x0, int16_t y0, hagl_color_t color);
+void hagl_put_pixel(void const *surface, int16_t x0, int16_t y0, hagl_color_t color);
 
 /**
  * Get a single pixel
@@ -64,15 +63,14 @@ hagl_put_pixel(void const *surface, int16_t x0, int16_t y0, hagl_color_t color);
  * error or if HAL does not support this feature returns black.
  *
  * @param surface
- * @param x0
- * @param y0
+ * @param x0 X coordinate
+ * @param y0 Y coordinate
  * @return color at the given location
  */
-hagl_color_t
-hagl_get_pixel(void const *surface, int16_t x0, int16_t y0);
+hagl_color_t hagl_get_pixel(void const *surface, int16_t x0, int16_t y0);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_PIXEL_H */
+#endif /* HAGL_PIXEL_H */

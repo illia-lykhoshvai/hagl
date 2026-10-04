@@ -32,8 +32,8 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_RGB332_H
-#define _HAGL_RGB332_H
+#ifndef HAGL_RGB332_H
+#define HAGL_RGB332_H
 
 #include <stdint.h>
 
@@ -41,8 +41,7 @@ SPDX-License-Identifier: MIT
 extern "C" {
 #endif /* __cplusplus */
 
-static inline uint8_t rgb332(uint8_t r, uint8_t g, uint8_t b)
-{
+static inline uint8_t rgb332(uint8_t r, uint8_t g, uint8_t b) {
     uint8_t r3 = ((r >> 4) & 0b00000110) | (r & 0b00000001);
     uint8_t g3 = ((g >> 4) & 0b00000110) | (g & 0b00000001);
     uint8_t b3 = ((b >> 4) & 0b00000110) | (b & 0b00000001);
@@ -53,4 +52,4 @@ static inline uint8_t rgb332(uint8_t r, uint8_t g, uint8_t b)
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_RGB332_H */
+#endif /* HAGL_RGB332_H */

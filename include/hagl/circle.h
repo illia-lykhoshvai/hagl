@@ -33,8 +33,8 @@ SPDX-License-Identifier: MIT
 
 */
 
-#ifndef _HAGL_CIRCLE_H
-#define _HAGL_CIRCLE_H
+#ifndef HAGL_CIRCLE_H
+#define HAGL_CIRCLE_H
 
 #include <stdint.h>
 
@@ -54,8 +54,9 @@ extern "C" {
  * @param r radius
  * @param color
  */
-void
-hagl_draw_circle(void const *surface, int16_t x0, int16_t y0, int16_t r, hagl_color_t color);
+void hagl_draw_circle(
+    void const *surface, int16_t x0, int16_t y0, int16_t r, hagl_color_t color
+);
 
 /**
  * Draw a filled circle
@@ -67,11 +68,12 @@ hagl_draw_circle(void const *surface, int16_t x0, int16_t y0, int16_t r, hagl_co
  * @param r radius
  * @param color
  */
-void
-hagl_fill_circle(void const *surface, int16_t x0, int16_t y0, int16_t r, hagl_color_t color);
+void hagl_fill_circle(
+    void const *surface, int16_t x0, int16_t y0, int16_t r, hagl_color_t color
+);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-#endif /* _HAGL_CIRCLE_H */
+#endif /* HAGL_CIRCLE_H */
